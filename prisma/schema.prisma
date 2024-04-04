@@ -10,13 +10,12 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = env("mongodb+srv://shabazzshaik5:shabazz_91@cluster0.oqrfiq5.mongodb.net/estate?retryWrites=true&w=majority&appName=Cluster0")
+  url      = env("DATABASE_URL")
 }
 
 model User {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  email   String   @unique
-  username    String?
-  password String?
-
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  email    String @unique
+  username String @unique
+  password String
 }
